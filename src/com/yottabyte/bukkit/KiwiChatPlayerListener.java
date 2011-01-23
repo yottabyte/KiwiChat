@@ -58,33 +58,7 @@ public class KiwiChatPlayerListener extends PlayerListener {
         if(event.getMessage().startsWith("/me")){
         	event.setCancelled(true);
         }
-/*
-        if(event.getMessage().startsWith("/do")){
-        	String msg = event.getMessage().substring(4);
-        	for(Player p : plugin.getServer().getOnlinePlayers()) p.sendMessage("*§e" + msg + " §6(" + player.getName() + ")");      	
-        }
-  */
-        if(event.getMessage().startsWith("/kick")){
-        	if (Permissions.Security.permission(event.getPlayer(), "kiwichat.kick")) {
-        		String fullMsg[] = event.getMessage().split(" ");
-        		if (fullMsg.length > 1) {
-	        		String p = fullMsg[1];
-	        		Player victim = plugin.getServer().getPlayer(p);
-	        		if(victim != null){
-	        			if(fullMsg.length < 3){
-	        				victim.kickPlayer("You have been kicked by " + player.getName() + ".");
-	        			}else{
-	        				String reason = combineSplit(2, fullMsg, " ");
-	        				victim.kickPlayer("You have been kicked by " + player.getName() + ". Reason: " + reason);
-	        			}
-	        		}else{
-	        			player.sendMessage("§cKick failed: " + p + " isn't online.");
-	        		}
-        		}else{
-        			player.sendMessage("§eUsage: /kick [player] (reason)");
-        		}
-        	}
-        }
+        
         if(event.getMessage().startsWith("/bc")){
         	if (Permissions.Security.permission(event.getPlayer(), "kiwichat.bc")) {
 	        	String msg = event.getMessage().substring(4);
